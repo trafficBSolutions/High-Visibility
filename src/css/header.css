@@ -1,0 +1,116 @@
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+.header-nav {
+    display: none;
+}
+.header-nav-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 8rem;
+}
+.sub-header-nav-list {
+    background-color: #555555;
+    border-radius: 6px;
+    box-shadow: none;
+    display: none;
+    flex-direction: column;
+    left: 7%;
+    line-height: 3rem;
+    list-style: none;
+    padding: 1rem;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    top: 80%;
+}
+.quote-dropdown:hover .sub-header-nav-list{
+    display: flex;
+    text-decoration: none;
+}
+.header-nav-logo {
+    max-width: 200px;
+}
+.sub-header-nav-list li {
+    position: relative;
+}
+.header-nav-social-list, .admin-options {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-quote-link, .btn-main .main-nav-link-view, .main-nav-link {
+        font-family: "Bank Sans EF Condensed";
+    text-decoration: none;
+    font-size: 2rem;
+    list-style: none;
+    background-color: rgb(233, 247, 89);
+    border-radius: 5px;
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    text-align: center;
+    transition: background-color .3s ease;
+}
+.btn-main:hover, .main-quote-link:hover {
+    background-color: #fff;
+}
+.main-header-nav-list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.main-header-nav-list li {
+    list-style: none;
+}
+.main-link  {
+    font-family: "EtruscoNowCondensed";
+    text-decoration: none;
+    font-size: 2rem;
+  list-style: none;
+}
+.sub-link {
+font-family: "EtruscoNowCondensed";
+    text-decoration: none;
+    font-size: 2rem;
+  list-style: none;
+  color: rgb(233, 247, 89);
+}
+.main-link {
+    color: rgb(233, 247, 89);
+}
+.main-link:hover {
+    color: #fff;
+}
+.sub-link:hover {
+    color: #fff;
+}
+.header-nav-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.header-nav-social-link {
+    font-size: 4rem;
+    color: rgb(233, 247, 89);
+}
+.header-nav-social-link:hover {
+    color: #fff;
+}   
+@media screen and (max-width: 320px) and (orientation: portrait) {
+    .header {
+        display: none;
+    }
+    .header-nav {
+        display: block;
+    }
+}
