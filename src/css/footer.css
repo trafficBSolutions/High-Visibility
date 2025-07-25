@@ -24,8 +24,19 @@
   list-style: none;
   color: rgb(233, 247, 89);
 }
+.footer-nav-link-view {
+    font-family: "EtruscoNowCondensed";
+    text-decoration: underline;
+    font-size: 1.2rem;
+  list-style: none;
+  color: #ffffff;
+}
 .footer-sub-link:hover, .footer-nav-link:hover{
     color: #fff;
+}
+.footer-sub-link-view {
+    color: #ffffff;
+    text-decoration: underline;
 }
 .footer-nav h3, .services-nav h3 {
     font-size: 2rem; 
@@ -50,4 +61,151 @@
 }
 .footer-face:hover, .footer-nav-social-link:hover {
     color: #fff;
+}
+.main-footer-quote-link {
+    font-family: "Bank Sans EF Condensed";
+    text-decoration: none;
+    font-size: 2rem;
+    list-style: none;
+    background-color: rgb(233, 247, 89);
+    border-radius: 5px;
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    text-align: center;
+    transition: background-color .3s ease;
+}
+@media screen and (min-width: 1200px) and (max-width: 1800px) {
+    .footer-container {
+        gap: 2rem;
+    }
+    .footer-nav-link {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+    .footer {
+        padding: 0;
+    }
+    .footer-logo-img {
+        max-width: 180px;
+    }
+    .main-footer-quote-link {
+        font-size: 1rem;
+    }
+    .footer-container {
+        gap: 0.5rem;
+    }
+    .footer-nav h3, .services-nav h3 {
+        font-size: 1.5rem;
+    }
+    .footer-nav-link, .footer-nav-link-view {
+        font-size: 1rem;
+    }
+.footer-nav-social-link {
+    font-size: 3rem;
+}
+.footer-copy-p {
+    font-size: 0.7rem;
+}
+}
+@media screen and (max-width: 1200px) and (orientation: portrait) {
+    .footer {
+        padding: 0;
+    }
+    .footer-logo-img {
+        max-width: 180px;
+    }
+    .main-footer-quote-link {
+        font-size: 1rem;
+    }
+    .footer-container {
+        gap: 0.5rem;
+    }
+    .footer-nav h3, .services-nav h3 {
+        font-size: 1.5rem;
+    }
+    .footer-nav-link {
+        font-size: 1rem;
+    }
+.footer-nav-social-link {
+    font-size: 3rem;
+}
+.footer-copy-p {
+    font-size: 0.7rem;
+}
+}
+@media screen and (min-width: 320px) and (max-width: 640px) and (orientation: portrait) {
+    .footer-container {
+        gap: 1rem;
+    }
+    .footer-logo-img {
+        width: 230px;
+    }
+    .footer-nav h3, .services-nav h3 {
+        font-size: 1.7rem;
+    }
+    .footer-sub-link, .footer-nav-list, .footer-nav-link {
+        font-size: 1.2rem;
+    }
+    .main-footer-quote-link {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+    .footer-nav-social-link {
+        font-size: 3.3rem;
+    }
+    .footer-copy-p {
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width: 320px) and (orientation: landscape) {
+    .footer-container {
+        gap: 1rem;
+    }
+    .footer-logo-img {
+        width: 230px;
+    }
+    .footer-nav h3, .services-nav h3 {
+        font-size: 1.7rem;
+    }
+    .footer-sub-link, .footer-nav-list, .footer-nav-link {
+        font-size: 1.2rem;
+    }
+    .main-footer-quote-link {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+    .footer-nav-social-link {
+        font-size: 3.3rem;
+    }
+    .footer-copy-p {
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width: 320px) and (orientation: portrait) {
+    .footer-container {
+        gap: 1rem;
+    }
+    .footer-logo-img {
+        width: 200px;
+    }
+    .footer-nav h3, .services-nav h3 {
+        font-size: 1.5rem;
+    }
+    .footer-sub-link, .footer-nav-list, .footer-nav-link {
+        font-size: 1rem;
+    }
+    .main-footer-quote-link {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+    .footer-nav-social-link {
+        font-size: 3rem;
+    }
+    .footer-copy-p {
+        font-size: 0.6rem;
+    }
 }
