@@ -10,21 +10,16 @@ const footer = () => {
                         <img src={images["High Visibility PDF.svg"]} alt="logo" className="footer-logo-img" />
                     </div>
                     <div className="footer-nav">
-                        <h3>Basics</h3>
+                        <h3>Navigation</h3>
                         <ul className="footer-nav-list">
-                            <li><a href="/about-us" className="footer-nav-link">About Us</a></li>
+                            <li><a href="/services" className="footer-nav-link">Services</a></li>
                             <li><a href="/contact-us" className="footer-nav-link">Contact Us</a></li>
                             <li><a href="/testimonials" className="footer-nav-link">Testimonials</a></li>
                         </ul>
                     </div>
-                    <div className="services-nav">
-                        <h3>Services</h3>
-                        <ul className="footer-nav-list">
-                            <li><a className="footer-sub-link" href="/services/express-detail">Express Detail</a></li>
-                            <li><a className="footer-sub-link" href="/services/upgrades">Upgrades</a></li>
-                            <li><a className="footer-sub-link" href="/services/express-detail">Ceramic Coatings</a></li>
-                            </ul>
-                    </div>
+                    <li className="header-nav-social-list quote-dropdown">
+  <a href="/services/express-detailing" className="main-footer-quote-link">Get a Quote</a>
+  </li>
                 <div className="footer-nav-social">
                     <a href="https://www.facebook.com/highvisibilitydetailing" className="footer-nav-social-link">
                     <IoLogoFacebook className="footer-nav-social-icon" />
