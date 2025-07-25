@@ -1,0 +1,107 @@
+.error-img-1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.error-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(62, 65, 38);
+    flex-direction: column;
+    gap: 1rem;
+    height: 25rem;
+}
+.NotFound {
+    font-family: "EtruscoNowCondensed";
+    font-size: 5rem;
+    color: magenta;
+    text-align: center;
+}
+.page-info {
+    font-family: "Bank Sans EF Condensed";
+    font-size: 2rem;
+    color: rgb(255, 123, 0);
+    text-align: center;
+}
+.not-found-container {
+    margin: 0 auto;
+    text-align: center;
+}
+.link-button {
+    display: inline-block;
+  background-color: rgb(7, 147, 237);
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.link-button:hover {
+  background-color: #0056b3;
+  cursor: pointer;
+}
+@media screen and (min-width: 1200px) and (max-width: 1800px) {
+    .error-main {
+        height: 30rem;
+    }
+}
+@media screen and (max-width: 1200px) and (orientation: portrait) {
+    .error-main {
+        height: 30rem;
+    }
+}
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+    .error-main {
+        height: 30rem;
+    }
+}
+ @media screen and (min-width: 320px) and (max-width: 640px) and (orientation: portrait){
+    .error-main {
+        height: 14rem;
+        display: block;
+    }
+    .NotFound {
+        font-size: 2.3rem;
+    }
+    .page-info {
+        font-size: 0.7rem;
+    }
+    .link-button {
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 320px) and (orientation: landscape) {
+    .error-main {
+        height: 14rem;
+        display: block;
+    }
+    .NotFound {
+        font-size: 2.3rem;
+    }
+    .page-info {
+        font-size: 0.7rem;
+    }
+    .link-button {
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 320px) and (orientation: portrait) {
+    .error-main {
+        height: 14rem;
+        display: block;
+    }
+    .NotFound {
+        font-size: 2.3rem;
+    }
+    .page-info {
+        font-size: 0.7rem;
+    }
+    .link-button {
+        font-size: 1rem;
+    }
+}
