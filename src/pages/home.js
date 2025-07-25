@@ -1,4 +1,3 @@
-import React from 'react'
 import Header from '../components/headers/HomeHeader';
 import Footer from '../components/footers/HomeFooter';
 import '../css/header.css';
@@ -6,8 +5,32 @@ import '../css/footer.css';
 import '../css/home.css';
 import images from '../utils/images';
 import PhotoGallery from '../components/photos';
-import testimonials from '../components/testimonials'; // adjust path if needed
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; // npm i react-icons
 const Home = () => {
+  const [testimonials, setTestimonials] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+useEffect(() => {
+  const fetchTestimonials = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/testimonials/latest');
+      console.log("Fetched testimonials:", response.data); // ← Add this
+      setTestimonials(response.data);
+    } catch (error) {
+      console.error("Error fetching testimonials:", error);
+    }
+  };
+  fetchTestimonials();
+}, []);
+
+ const prevReview = () => {
+    setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  };
+
+  const nextReview = () => {
+    setCurrentIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  };
   return (
     <div>
         <Header/>
@@ -55,7 +78,7 @@ const Home = () => {
     <div className="services-container">
     <div className="service-card">
       <h3 className="service-title">Express Detailing</h3>
-      <img src={images["foaming.jpg"]} alt="Express Detailing" className="service-image" />
+      <img src={images["carpet2.jpeg"]} alt="Express Detailing" className="service-image" />
       <ul className="service-list">
         <li>Foaming Exterior Hand Wash (Wheels, Tires, Fender Wells)</li>
         <li>Door Jamb Detail</li>
@@ -66,12 +89,12 @@ const Home = () => {
         <li>Tires Dressed</li>
         <li><strong>Approx. 1.5 Hours • $119–$149</strong></li>
       </ul>
-      <a href="/quote/express-detailing" className="quote-button">Get a Quote</a>
+      <a href="/services/service-quote" className="quote-button">Get a Quote</a>
     </div>
 
     <div className="service-card">
       <h3 className="service-title">Popular Upgrades</h3>
-      <img src={images["carpet.jpg"]} alt="Popular Upgrade" className="service-image" />
+      <img src={images["wash.jpeg"]} alt="Popular Upgrade" className="service-image" />
       <ul className="service-list">
         <li>12-Month Ceramic/Graphene Spray: $89–$99</li>
         <li>Pet Hair Removal: $49–$149</li>
@@ -81,12 +104,12 @@ const Home = () => {
         <li>Engine Detail: $29–$49</li>
         <li>Headlight Restoration: $79–$99</li>
       </ul>
-      <a href="/quote/popular-upgrades" className="quote-button">Get a Quote</a>
+      <a href="/services/service-quote" className="quote-button">Get a Quote</a>
     </div>
 
     <div className="service-card">
       <h3 className="service-title">Ceramic Coatings</h3>
-      <img src={images["Truck Detail Tire.jpg"]} alt="Ceramic Coatings" className="service-image" />
+      <img src={images["washing.jpeg"]} alt="Ceramic Coatings" className="service-image" />
       <ul className="service-list">
         <li>3-Year: $699–$849</li>
         <li>5-Year: $999–$1,149</li>
@@ -98,40 +121,49 @@ const Home = () => {
         <li>1-Step Correction: $299–$399</li>
         <li>2-Step Correction: $599–$799</li>
       </ul>
-      <a href="/quote/ceramic-coatings" className="quote-button">Get a Quote</a>
+      <a href="/services/service-quote" className="quote-button">Get a Quote</a>
     </div>
 </div>
   </div>
-  <div className="flow-chart">
-    <h2 className="flow-chart-title">How it Works</h2>
-    <img src={images["Flow Chart.svg"]} alt="Flow Chart" className="flow-chart-image" />
-  </div>
-</section>
-<section className="photos-section">
-    <div className="photos-container">
+  <div className="photos-container">
         <h2 className="photos-title">Photo Gallery</h2>
         <p className="photos-description">
             Check out our photo gallery to see some of our recent work.
+        </p>
+        <p className="click-me">
+          Click a Photo
         </p>
         <div className="photos-gallery">
             <PhotoGallery/>
         </div>
     </div>
-    </section>
-<section className="reviews-section">
-  <div className="reviews-container">
-    <h2 className="reviews-title">Customer Reviews</h2>
-    <div className="review-list">
-      {testimonials.slice(0, 3).map((review, index) => (
-        <div className="review-card" key={index}>
-          <p className="review-text">"{review.review}"</p>
-          <p className="review-author">– {review.name}, {review.date}</p>
-        </div>
-      ))}
-    </div>
-    <a href="/testimonials" className="view-all-reviews-button">Read More Reviews</a>
-  </div>
 </section>
+<section className="reviews-section">
+      <div className="reviews-container">
+        <h2 className="reviews-title">Customer Reviews</h2>
+{testimonials.length > 0 && (
+  <div className="review-carousel">
+    {testimonials.length > 1 && (
+      <button className="navigation-arrow-left" onClick={prevReview}>
+        <FaChevronLeft />
+      </button>
+    )}
+    <div className="review-card">
+      <p className="review-text">"{testimonials[currentIndex].review}"</p>
+      <p className="review-author">– {testimonials[currentIndex].name}</p>
+    </div>
+    {testimonials.length > 1 && (
+      <button className="navigation-arrow-right" onClick={nextReview}>
+        <FaChevronRight />
+      </button>
+    )}
+  </div>
+)}
+
+        <a href="/testimonials" className="view-all-reviews-button">Read More Reviews</a>
+      </div>
+    </section>
+
 
         </div>
       <Footer/>
