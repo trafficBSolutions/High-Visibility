@@ -1,28 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import images from "../../utils/images";
-import { useNavigate } from 'react-router-dom';
 import { IoLogoFacebook, IoLogoInstagram, IoMenuOutline } from 'react-icons/io5';
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(false);
-    const navigate = useNavigate();
-    useEffect(() => {
-        const storedAdmin = localStorage.getItem('adminUser');
-        setIsAdmin(!!storedAdmin); // true if logged in
-    }, []);
     const toggle = () => 
         setIsOpen(!isOpen);
-const handleAdminClick = () => {
-        if (isAdmin) {
-            // Logging out
-            localStorage.removeItem('adminUser');
-            setIsAdmin(false);
-            navigate('/admin-login');
-        } else {
-            // Navigate to login
-            navigate('/admin-login');
-        }
-    };
 return (
     <header className="header">
         <div className="header-nav">
@@ -30,12 +12,13 @@ return (
                 <IoMenuOutline className="icon-mobile-nav" />
                 </button>
         </div>
-        <nav className={`header-nav-list ${isOpen ? 'open' : ''}`}>
+        <nav className={`header-nav-list ${isOpen ? 'active' : ''}`}>
             <a href="/" className="header-nav-link">
             <img src={images["High Visibility PDF.svg"]} alt="logo" className="header-nav-logo" />
             </a>
             <ul className="main-header-nav-list">
-                <li><a className="main-link" href="/about-us">About Us</a></li>
+                <li><a className="main-link-view" href="/">Home</a></li>
+                <li><a className="main-link" href="/services">Services</a></li>
                 <li><a href="/contact-us" className="main-link">Contact Us</a></li>
                 <li><a href="/testimonials" className="main-link">Testimonials</a></li>
                 </ul>
@@ -47,24 +30,9 @@ return (
                     <IoLogoInstagram className="header-nav-social-icon" />
                     </a>
                     </div>
-<li className="header-nav-social-list quote-dropdown">
-  <p className="main-quote-link">Get a Quote</p>
-  <ul className="sub-header-nav-list">
-    <li><a className="sub-link" href="/services/express-detail">Express Detail</a></li>
-    <li><a className="sub-link" href="/services/upgrades">Upgrades</a></li>
-    <li><a className="sub-link" href="/services/express-detail">Ceramic Coatings</a></li>
-  </ul>
+                    <li className="header-nav-social-list quote-dropdown">
+                    <a href="/services/service-quote" className="main-quote-link">Get a Quote</a>
 </li>
-                     <li className="admin-options">
-            {isAdmin && (
-                <a className="btn-main main-nav-link-view" href="/admin-dashboard">
-                    Admin Dashboard
-                </a>
-            )}
-            <button className="btn-main main-nav-link" onClick={handleAdminClick}>
-                {isAdmin ? 'Log Out' : 'Login'}
-            </button>
-        </li>
             </nav>
     </header>
 )
