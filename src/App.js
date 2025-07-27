@@ -3,7 +3,7 @@ import {Routes, Route } from 'react-router-dom';
 import {Toaster} from 'react-hot-toast';
 import {Home, Error, Services, Testimonials, ContactUs, ServiceQuote} from "./pages";
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:8000'
+axios.defaults.baseURL = 'https://high-vis-server.onrender.com'
 axios.defaults.withCredentials = true
 function App() {
   return (
