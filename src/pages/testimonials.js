@@ -20,7 +20,7 @@ export default function Testimonials() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/testimonials/latest');
+        const res = await axios.get('https://high-vis-server.onrender.com/testimonials/latest');
         setReviews(res.data);
       } catch (err) {
         console.error('Failed to load reviews:', err);
