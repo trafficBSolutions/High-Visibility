@@ -14,7 +14,7 @@ const Home = () => {
 useEffect(() => {
   const fetchTestimonials = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/testimonials/latest');
+      const response = await axios.get('https://high-vis-server.onrender.com/testimonials/latest');
       console.log("Fetched testimonials:", response.data); // ← Add this
       setTestimonials(response.data);
     } catch (error) {
