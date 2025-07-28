@@ -88,6 +88,14 @@
   visibility: visible !important;
   opacity: 1 !important;
 }
+.review-test-card {
+            background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 8px #0000001a;
+    max-width: 300px;
+    padding: 1.5rem;
+    text-align: left;
+    }
 @media screen and (max-width: 1200px) and (orientation: landscape) {
 .review-list {
     gap: 0.7rem;
