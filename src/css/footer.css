@@ -77,6 +77,9 @@
     text-align: center;
     transition: background-color .3s ease;
 }
+.main-footer-quote-link:hover {
+    background-color: #fff;
+}
 @media screen and (min-width: 1200px) and (max-width: 1800px) {
     .footer-container {
         gap: 2rem;
