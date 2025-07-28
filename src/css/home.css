@@ -594,6 +594,9 @@ font-size: 0.7rem;
 .services-section {
   display: block;
 }
+.modal-content {
+  max-width: 80%;
+}
 }
 @media screen and (max-width: 320px) and (orientation: landscape) {
 .home-container {
@@ -654,6 +657,9 @@ font-size: 0.7rem;
 .services-section {
   display: block;
 }
+.modal-content {
+  max-width: 50%;
+}
 }
 @media screen and (max-width: 320px) and (orientation: portrait) {
 .home-container {
@@ -713,5 +719,8 @@ font-size: 0.7rem;
 }
 .services-section {
   display: block;
+}
+.modal-content {
+  max-width: 80%;
 }
 }
