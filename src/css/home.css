@@ -453,7 +453,7 @@ a {
     font-size: 1.1rem;
   }
   .modal-content {
-  max-width: 50%;
+  max-width: 80%;
 }
 }
 @media screen and (max-width: 1200px) and (orientation: landscape) {
