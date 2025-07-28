@@ -160,7 +160,7 @@ useEffect(() => {
   </div>
 )}
 
-        <a href="/testimonials" className="view-all-reviews-button">Read More Reviews</a>
+        <a href="/testimonials" className="view-all-reviews-button">Write a Review</a>
       </div>
     </section>
 
