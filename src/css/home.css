@@ -281,7 +281,7 @@
 }
 .modal-content
 {
-    max-width: 30%;
+    max-width: 35%;
     position: relative;
 }
 .modal-content img
@@ -453,7 +453,7 @@ a {
     font-size: 1.1rem;
   }
   .modal-content {
-  max-width: 80%;
+  max-width: 40%;
 }
 }
 @media screen and (max-width: 1200px) and (orientation: landscape) {
