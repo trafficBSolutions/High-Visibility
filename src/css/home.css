@@ -452,6 +452,9 @@ a {
   .slogan {
     font-size: 1.1rem;
   }
+  .modal-content {
+  max-width: 80%;
+}
 }
 @media screen and (max-width: 1200px) and (orientation: landscape) {
   .service-title {
@@ -493,6 +496,9 @@ a {
   .slogan {
     font-size: 0.8rem;
   }
+  .modal-content {
+  max-width: 40%;
+}
 }
 @media screen and (max-width: 1200px) and (orientation: portrait) {
   .service-title {
@@ -534,6 +540,9 @@ a {
   .slogan {
     font-size: 0.5rem;
   }
+  .modal-content {
+  max-width: 80%;
+}
 }
   @media screen and (min-width: 320px) and (max-width: 640px) and (orientation: portrait) {
 .home-container {
