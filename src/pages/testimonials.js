@@ -94,7 +94,7 @@ if (Object.keys(newErrors).length > 0) {
       </p>
       <div className="review-list">
         {reviews.map((r) => (
-          <div className="review-card" key={r._id}>
+          <div className="review-test-card" key={r._id}>
             <h3>{r.name}</h3>
             <p>{'⭐'.repeat(r.rating)}</p>
             <p>{r.review}</p>
