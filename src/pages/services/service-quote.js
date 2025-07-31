@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const ServiceQuote = () => {
   const [form, setForm] = useState({
-    name: '', email: '', phone: '', vehicleType: '', make: '', model: '', color: '',
+    name: '', email: '', phone: '', vehicleType: '', make: '', model: '', color: '', city: '',
     services: [], notes: ''
   });
 const liabilityChecklist = [
@@ -83,7 +83,7 @@ const handleSubmit = async (e) => {
     if (isSubmitting) return;
     setIsSubmitting(true);
     try { const requiredFields = ['name', 'email', 'phone', 'vehicleType',
-      'make', 'model', 'color'];
+      'make', 'model', 'color', 'city'];
     const newErrors = {};
 
     requiredFields.forEach(field => {
@@ -96,6 +96,7 @@ const handleSubmit = async (e) => {
         if (field === 'make') fieldLabel = 'Make';
         if (field === 'model') fieldLabel = 'Model';
         if (field === 'color') fieldLabel = 'Color';
+        if (field === 'city') fieldLabel = 'City';
         newErrors[field] = `${fieldLabel} is required!`;
       }
     });
@@ -124,6 +125,7 @@ if (Object.keys(newErrors).length > 0) {
         make: '',
         model: '',
         color: '',
+        city: '',
         services: [],
         notes: ''
       });
@@ -240,7 +242,16 @@ setTimeout(checkAllFieldsFilled, 0);
             setTimeout(checkAllFieldsFilled, 0);
           }}/></label>
           {errors.color && <div className="error-message">{errors.color}</div>}
-
+<label>
+            Location *
+          <input name="city" placeholder="Location" value={form.city} onChange={(e) => {
+            setForm({ ...form, city: e.target.value});
+            if (e.target.value) {
+                setErrors((prevErrors) => ({ ...prevErrors, city: ''}));
+            }
+            setTimeout(checkAllFieldsFilled, 0);
+          }}/></label>
+          {errors.city && <div className="error-message">{errors.city}</div>}
 <fieldset>
   <legend className="legend-service">Select Services *</legend>
   <p className="legend-apply">Select all that apply</p>
