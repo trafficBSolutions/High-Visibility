@@ -18,7 +18,7 @@ const footer = () => {
                         </ul>
                     </div>
                     <li className="header-nav-social-list quote-dropdown">
-  <a href="/services/express-detailing" className="main-footer-quote-link">Get a Quote</a>
+  <a href="/services/service-quote" className="main-footer-quote-link">Get a Quote</a>
   </li>
                 <div className="footer-nav-social">
                     <a href="https://www.facebook.com/highvisibilitydetailing" className="footer-nav-social-link">
