@@ -147,8 +147,7 @@ export default function PhotoGallery() {
       Math.min(photos.length - 1, prevIndex + (window.innerWidth <= 320 ? 1 : 4))
     );
   };
-const combinedPhotos = [...photos, ...uploadedPhotos];
-const visiblePhotos = combinedPhotos.slice(currentPhotoIndex, currentPhotoIndex + 4);
+const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + 4);
   return (
     <div className="gallery-container">
       <div className="gallery">
