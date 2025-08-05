@@ -334,6 +334,7 @@ setTimeout(checkAllFieldsFilled, 0);
                 Additional Notes:
           <textarea name="notes" placeholder="Additional Notes" value={form.notes} onChange={handleChange} /></label>
 <div className="photo-upload-wrapper">
+  <label>Vehicle Photos: </label>
   <label htmlFor="photo-upload" className="custom-upload-button">
     📷 Upload Vehicle Photos
   </label>
