@@ -138,7 +138,6 @@ export default function PhotoGallery() {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState(null);
-const [uploadedPhotos, setUploadedPhotos] = useState([]);
   const handlePrevious = () => {
     setCurrentPhotoIndex((prevIndex) => Math.max(0, prevIndex - (window.innerWidth <= 320 ? 1 : 4)));
   };
