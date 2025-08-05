@@ -10,17 +10,18 @@ const ServiceQuote = () => {
     services: [], notes: ''
   });
 const liabilityChecklist = [
-  "I understand all services are performed with care but are not guaranteed to fix all cosmetic or mechanical issues.",
-  "I acknowledge that pet hair, stains, and severe grime may not be 100% removable in one visit.",
-  "I authorize High Visibility to document before/after conditions for quality and marketing purposes.",
-  "I understand ceramic coatings require proper maintenance and have limitations on protection.",
-  "I acknowledge that correction or extraction may incur additional costs depending on condition.",
-  "I agree to avoid automatic car washes and follow aftercare instructions provided.",
-  "I understand no refunds will be issued after services are performed.",
-  "I accept that no scheduling was made online and a rep will follow up to schedule service time.",
-  "I agree to the service terms and conditions outlined during communication.",
-  "I authorize the use of my information for scheduling and contact purposes only.",
-  "I confirm all information I provided is accurate to the best of my knowledge."
+  "Release of Liability - I hereby waive, release, and discharge High Visibility Detailing LLC, its owners, employees, agents, and contractors from any and all claims, damages, or liability for any loss, damage, or injury to my vehicle or personal property that may arise during or after the detailing process, regardless of cause.",
+  "Voluntary Services Request - I am voluntarily requesting and authorizing services provided by High Visibility Detailing LLC. These services may include, but are not limited to, exterior/interior cleaning, waxing, polishing, paint correction, steam cleaning, and/or ceramic coating.",
+  "As-Is and Pre-Existing Conditions - I acknowledge that my vehicle is being detailed in as-is condition. High Visibility Detailing LLC is not responsible for pre-existing damage including, but not limited to, scratches, dents, paint imperfections, rust, clear coat failure, or damaged interior materials.",
+  "Photos and Documentation - I authorize High Visibility Detailing LLC to take before/after photos of my vehicle for documentation and/or marketing purposes. No identifying personal information will be disclosed.",
+  "Personal Items and Car Seats - I acknowledge that I am responsible for removing all valuables and personal items from my vehicle PRIOR to service, including but not limited to electronics, accessories, child car seats, and booster seats. Removal of these items by High Visibility Detailing LLC during service may incur additional charges. High Visibility Detailing LLC is not responsible for any lost, stolen, damaged, or improperly reinstalled items. I understand that if a car seat is left in the vehicle, it may be moved or adjusted during cleaning, and I release High Visibility Detailing LLC from any liability related to its reinstallation, fitment, or use after service. It is my sole responsibility to check and reinstall any car seat properly before transporting a child.",
+  "Pet Hair, Stains, and Build-Up/Grime - I understand that pet hair, stains, and heavy build-up/grime is difficult to remove entirely. High Visibility Detailing LLC will make a reasonable effort, but I acknowledge that full removal may not be possible and/or may incur additional charges.",
+  "Engine Detailing/Cleaning - I understand that while care is taken during engine bay cleaning, this area contains sensitive electrical components and aftermarket modifications. I release High Visibility Detailing LLC from any liability related to damage, starting issues, check engine lights, or other complications that may arise during or after engine bay detailing.",
+  "Non-OEM and Aftermarket Parts/Accessories - I acknowledge that aftermarket parts, wraps, decals, emblems, and accessories may be more prone to damage during detailing. High Visibility Detailing LLC will take precautions but is not responsible for damage to any non-OEM parts or improperly installed components.",
+  "Headliners - I understand that vehicle headliners are delicate and often glued to foam or fabric that can loosen or sag if agitated or overly wet. High Visibility Detailing LLC will only perform light cleaning on headliners and assumes no responsibility for any sagging, detachment, or staining that may occur during or after cleaning.",
+  "Aftercare and Maintenance - I understand that certain services such as ceramic coatings, interior treatments, etc. may require proper aftercare. High Visibility Detailing LLC is not responsible for any issues arising from failure to follow provided aftercare instructions.",
+  "Cancellation Policies - I agree to any posted cancellation policy and agree that payment is due upon completion of services unless otherwise arranged. I understand and acknowledge that if I cancel or reschedule my appointment within 36 hours of the scheduled service time, or fail to be present at the agreed-upon location and time, I may be charged a late cancellation fee of $49. This fee covers lost time and travel costs. These cancellation charges apply to all bookings through the website, phone, text, email, social media, in-person, etc.",
+  "Mobile-Service Risk Factors - I understand that High Visibility Detailing LLC is a mobile service and factors beyond control can be affected by detailing outside, sunlight exposure during service, and in locations where the environment cannot be controlled will affect the outcome of results. Even though deionized water is used, water spotting can still occur due to weather and sunlight exposure during service. To minimize and avoid water spotting, it is best for the vehicle to be placed in a location where there is little to no direct sunlight."
 ];
 
 const [waiverChecks, setWaiverChecks] = useState(
@@ -163,6 +164,10 @@ if (Object.keys(newErrors).length > 0) {
 </p>
         <form className="quote-form" onSubmit={handleSubmit}>
 <h3 className="fill-info">Fields marked with * are required.</h3>
+<p className="condition-note">
+  *All Detail Services and Pricing is based on vehicle size and condition. Please be aware and understand the condition of your vehicle and the service you can expect. A pre-Inspection will be completed each and every service visit and documented via photographs/video to determine both condition and if services booked meet each customer's final expectations. Prices subject to change due to vehicle's additional services required.
+</p>
+
             <label>
                 Name *
           <input name="name" placeholder="Your Name" value={form.name} onChange={(e) => { 
@@ -244,6 +249,10 @@ setTimeout(checkAllFieldsFilled, 0);
           {errors.color && <div className="error-message">{errors.color}</div>}
 <label>
             Location *
+            <p className="travel-note">
+  *Travel fees of $1 per minute outside of 30 minutes from Calhoun, Georgia.
+</p>
+
           <input name="city" placeholder="Location" value={form.city} onChange={(e) => {
             setForm({ ...form, city: e.target.value});
             if (e.target.value) {
@@ -256,24 +265,31 @@ setTimeout(checkAllFieldsFilled, 0);
   <legend className="legend-service">Select Services *</legend>
   <p className="legend-apply">Select all that apply</p>
   {[
-    "Express Detail",
-    "12-Month Ceramic/Graphene Spray",
-    "Pet Hair Removal",
-    "Steam Cleaning",
-    "Carpet/Upholstery Extraction",
-    "Leather Conditioning",
-    "Engine Detail",
-    "Headlight Restoration",
-    "3-Year Ceramic Coating",
-    "5-Year Ceramic Coating",
-    "9-Year Ceramic Coating",
-    "Glass Ceramic Coating",
-    "Wheel Face Ceramic Coating",
-    "Interior Leather Ceramic Coating",
-    "Paint Polish/Enhancement",
-    "1-Step Paint Correction",
-    "2-Step Paint Correction"
-  ].map((service, index) => (
+  "Express Detail - $119–$149",
+  "12-Month Ceramic/Graphene Spray (lasts up to 12 months and includes light clay treatment and chemical decontamination of the paint) - $89–$99",
+  "Pet Hair Removal - $49–$149",
+  "Steam Cleaning - $69–$159",
+  "Carpet/Upholstery Extraction - $59–$299",
+  "Leather Conditioning - $39–$79",
+  "Engine Detail - $29–$49",
+  "Headlight Restoration - $79–$99",
+  "Truck Bed Detail - $29–$59",
+  "Headliner Detail - $29–$69",
+  "Interior Stains Spot Detail - $19",
+  "Water Spot Removal - $29–$129",
+  "Artillery Fungus/Overspray Removal - $69–$199",
+  "Moderate to Heavy Clay Treatment of Paint - $69–$129",
+  "3-Year Ceramic Coating - $699–$849",
+  "5-Year Ceramic Coating - $999–$1,149",
+  "9-Year Ceramic Coating - $1,499–$1,649",
+  "Glass Ceramic Coating - $49–$59",
+  "Wheel Face Ceramic Coating - $49–$69",
+  "Interior Leather Ceramic Coating - $119–$159",
+  "Paint Polish/Enhancement - $149–$199",
+  "1-Step Paint Correction - $299–$399",
+  "2-Step Paint Correction - $599–$799"
+]
+.map((service, index) => (
     <label key={index}>
       <input
         type="checkbox"
@@ -285,6 +301,16 @@ setTimeout(checkAllFieldsFilled, 0);
     </label>
   ))}
   {errors.services && <div className="error-message">{errors.services}</div>}
+  <div className="ceramic-coating-note">
+  <h4 className="ceramic-title">Important Ceramic Coating Guidelines</h4>
+  <ul className="ceramic-list">
+    <li>🛑 <strong>HIGHLY RECOMMENDED:</strong> A garage or enclosed space is ideal for proper curing.</li>
+    <li>🚗 Vehicle should not be driven and must stay indoors for <strong>12–48 hours</strong> after service (depending on coating type).</li>
+    <li>☔ After that, the vehicle may be driven and is safe in wet/rainy conditions.</li>
+    <li>🧼 <strong>Do not wash</strong> the vehicle until <strong>7 days</strong> after coating is applied.</li>
+  </ul>
+</div>
+
 </fieldset>
 
             <label>
@@ -293,13 +319,6 @@ setTimeout(checkAllFieldsFilled, 0);
           <div className="liability-section">
   <h2 className="liability-title">Liability Agreement</h2>
   <p className="liability-intro">Before proceeding, please read and acknowledge each item below:</p>
-<ul className="service-summary">
-  <li>Full Exterior Prep & Decontamination</li>
-  <li>1–3 Layer Ceramic Coating Application</li>
-  <li>Wheels and Windows Optionally Coated</li>
-  <li>Protection Duration: 2–5 Years</li>
-  <li><strong>$399–$799 (Approx. 4–6 hrs)</strong></li>
-</ul>
   {liabilityChecklist.map((item, index) => (
     <label key={index} className="liability-checkbox">
       <input
