@@ -332,6 +332,12 @@
   .liability-section label {
     font-size: 0.7rem;
   }
+  .ceramic-list {
+    font-size: 0.8rem;
+  }
+  .ceramic-title {
+    font-size: 0.9rem;
+  }
 }
 @media screen and (max-width: 320px) and (orientation: landscape) {
   .service-title-h1 {
