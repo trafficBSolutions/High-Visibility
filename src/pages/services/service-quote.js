@@ -21,7 +21,13 @@ const liabilityChecklist = [
   "Headliners - I understand that vehicle headliners are delicate and often glued to foam or fabric that can loosen or sag if agitated or overly wet. High Visibility Detailing LLC will only perform light cleaning on headliners and assumes no responsibility for any sagging, detachment, or staining that may occur during or after cleaning.",
   "Aftercare and Maintenance - I understand that certain services such as ceramic coatings, interior treatments, etc. may require proper aftercare. High Visibility Detailing LLC is not responsible for any issues arising from failure to follow provided aftercare instructions.",
   "Cancellation Policies - I agree to any posted cancellation policy and agree that payment is due upon completion of services unless otherwise arranged. I understand and acknowledge that if I cancel or reschedule my appointment within 36 hours of the scheduled service time, or fail to be present at the agreed-upon location and time, I may be charged a late cancellation fee of $49. This fee covers lost time and travel costs. These cancellation charges apply to all bookings through the website, phone, text, email, social media, in-person, etc.",
-  "Mobile-Service Risk Factors - I understand that High Visibility Detailing LLC is a mobile service and factors beyond control can be affected by detailing outside, sunlight exposure during service, and in locations where the environment cannot be controlled will affect the outcome of results. Even though deionized water is used, water spotting can still occur due to weather and sunlight exposure during service. To minimize and avoid water spotting, it is best for the vehicle to be placed in a location where there is little to no direct sunlight."
+  "Mobile-Service Risk Factors - I understand that High Visibility Detailing LLC is a mobile service and factors beyond control can be affected by detailing outside, sunlight exposure during service, and in locations where the environment cannot be controlled will affect the outcome of results. Even though deionized water is used, water spotting can still occur due to weather and sunlight exposure during service. To minimize and avoid water spotting, it is best for the vehicle to be placed in a location where there is little to no direct sunlight.",
+  "I agree to avoid automatic car washes and follow aftercare instructions provided.",
+  "I understand no refunds will be issued after services are performed.",
+  "I accept that no scheduling was made online and a rep will follow up to schedule service time.",
+  "I agree to the service terms and conditions outline during communication",
+  "I authorize the use of my information for scheduling and contact purposes only.",
+  "I confirm all information I provided is accurate to the best of my knowledge."
 ];
 
 const [waiverChecks, setWaiverChecks] = useState(
