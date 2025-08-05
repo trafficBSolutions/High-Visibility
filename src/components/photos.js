@@ -8,8 +8,18 @@ const photos = [
         width: 3024
     },
     {
+        src: images['image3 (1).jpeg'],
+        height: 4032, 
+        width: 3024
+    },
+    {
         src: images['photo2.jpg'],
         height: 4032,
+        width: 3024
+    },
+    {
+        src: images['image17.jpeg'],
+        height: 4032, 
         width: 3024
     },
     {
@@ -18,18 +28,28 @@ const photos = [
         width: 3024
     },
     {
+        src: images['image4.jpeg'],
+        height: 4032, 
+        width: 3024
+    },
+    {
+        src: images['image5.jpeg'],
+        height: 4032, 
+        width: 3024
+    },
+    {
+        src: images['image6.jpeg'],
+        height: 4032, 
+        width: 3024
+    },
+    {
         src: images['photo4.jpg'],
         height: 4032,
         width: 3024
     },
     {
-        src: images['photo5.jpg'],
-        height: 4032,
-        width: 3024
-    },
-    {
-        src: images['photo6.jpg'],
-        height: 4032,
+        src: images['image7.jpeg'],
+        height: 4032, 
         width: 3024
     },
     {
@@ -38,13 +58,23 @@ const photos = [
         width: 3024
     },
     {
-        src: images['photo8.jpg'],
-        height: 4032,
+        src: images['image18.jpeg'],
+        height: 4032, 
         width: 3024
     },
     {
-        src: images['photo9.jpg'],
-        height: 4032,
+        src: images['image16.jpeg'],
+        height: 4032, 
+        width: 3024
+    },
+    {
+        src: images['image19.jpeg'],
+        height: 4032, 
+        width: 3024
+    },
+{
+        src: images['image2 (1).jpeg'],
+        height: 4032, 
         width: 3024
     },
     {
@@ -53,36 +83,62 @@ const photos = [
         width: 3024
     },
     {
+        src: images['image14.jpeg'],
+        height: 4032, 
+        width: 3024
+    },
+    {
+        src: images['image8.jpeg'],
+        height: 4032, 
+        width: 3024
+    },
+    {
         src: images['photo11.jpg'],
         height: 4032,
         width: 3024
     },
-    {
-        src: images['photo12.jpg'],
-        height: 4032,
-        width: 3024
-    },
-    {
-        src: images['photo13.jpg'],
-        height: 4032,
-        width: 3024
-    },
-    {
-        src: images['photo14.jpg'],
-        height: 4032,
-        width: 3024
-    },
+
     {
         src: images['photo15.jpg'],
         height: 4032,
         width: 3024
-    }
+    },
+    {
+        src: images['image9.jpeg'],
+        height: 4032, 
+        width: 3024
+    },
+    {
+        src: images['image10.jpeg'],
+        height: 4032, 
+        width: 3024
+    },
+    {
+        src: images['image11.jpeg'],
+        height: 4032, 
+        width: 3024
+    },
+    {
+        src: images['image12.jpeg'],
+        height: 4032, 
+        width: 3024
+    },
+    {
+        src: images['image13.jpeg'],
+        height: 4032, 
+        width: 3024
+    },
+    {
+        src: images['image15.jpeg'],
+        height: 4032, 
+        width: 3024
+    },
 ]
 export default function PhotoGallery() {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState(null);
-
+const [uploadedPhotos, setUploadedPhotos] = useState([]);
   const handlePrevious = () => {
     setCurrentPhotoIndex((prevIndex) => Math.max(0, prevIndex - (window.innerWidth <= 320 ? 1 : 4)));
   };
@@ -92,9 +148,8 @@ export default function PhotoGallery() {
       Math.min(photos.length - 1, prevIndex + (window.innerWidth <= 320 ? 1 : 4))
     );
   };
-
-  const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + 4);
-
+const combinedPhotos = [...photos, ...uploadedPhotos];
+const visiblePhotos = combinedPhotos.slice(currentPhotoIndex, currentPhotoIndex + 4);
   return (
     <div className="gallery-container">
       <div className="gallery">
@@ -120,7 +175,6 @@ export default function PhotoGallery() {
           </button>
         )}
       </div>
-
       {/* Modal Fullscreen View */}
 {isModalOpen && (
   <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
