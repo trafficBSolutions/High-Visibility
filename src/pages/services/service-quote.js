@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const ServiceQuote = () => {
   const [form, setForm] = useState({
     name: '', email: '', phone: '', vehicleType: '', make: '', model: '', color: '', city: '',
-    services: [], notes: ''
+    services: [], notes: '', photos: ''
   });
 const liabilityChecklist = [
   "Release of Liability - I hereby waive, release, and discharge High Visibility Detailing LLC, its owners, employees, agents, and contractors from any and all claims, damages, or liability for any loss, damage, or injury to my vehicle or personal property that may arise during or after the detailing process, regardless of cause.",
@@ -34,6 +34,7 @@ const [waiverChecks, setWaiverChecks] = useState(
   const [submissionMessage, setSubmissionMessage] = useState('');
   const [submissionErrorMessage, setSubmissionErrorMessage] = useState('');
   const [errors, setErrors] = useState('');
+  const [photos, setPhotos] = useState([]);
   const [signature, setSignature] = useState("");
   const handlePhoneChange = (event) => {
     const input = event.target.value;
@@ -112,10 +113,19 @@ if (Object.keys(newErrors).length > 0) {
   setErrorMessage(''); // ✅ Clear general error if all fields are now valid
 }  
   setIsSubmitting(true);
-      const response = await axios.post('/service-quote', form, {
-        headers: {
-          'Content-Type': 'application/json'
-      }})
+const formData = new FormData();
+for (let key in form) {
+  formData.append(key, form[key]);
+}
+photos.forEach((photo) => {
+  formData.append('photos', photo);
+});
+
+const response = await axios.post('/service-quote', formData, {
+  headers: {
+    'Content-Type': 'multipart/form-data'
+  }
+});
       console.log(response.data); // Now this works
            
       setForm({
@@ -128,7 +138,8 @@ if (Object.keys(newErrors).length > 0) {
         color: '',
         city: '',
         services: [],
-        notes: ''
+        notes: '',
+        photos: ''
       });
     if (form.services.length === 0) {
       newErrors.services = 'Please select at least one service.';
@@ -316,6 +327,48 @@ setTimeout(checkAllFieldsFilled, 0);
             <label>
                 Additional Notes:
           <textarea name="notes" placeholder="Additional Notes" value={form.notes} onChange={handleChange} /></label>
+<div className="photo-upload-wrapper">
+  <label htmlFor="photo-upload" className="custom-upload-button">
+    📷 Upload Vehicle Photos
+  </label>
+  <input
+    id="photo-upload"
+    type="file"
+    name="photos"
+    accept="image/*"
+    multiple
+    style={{ display: 'none' }}
+    onChange={(e) => {
+      const selectedFiles = Array.from(e.target.files);
+      setPhotos((prev) => [...prev, ...selectedFiles]);
+    }}
+  />
+
+  {photos.length > 0 && (
+    <div className="photo-preview-grid">
+      {photos.map((photo, index) => (
+        <div key={index} className="photo-preview-item">
+          <img
+            src={URL.createObjectURL(photo)}
+            alt={`preview-${index}`}
+            className="photo-thumb"
+          />
+          <button
+            type="button"
+            className="remove-photo-button"
+            onClick={() => {
+              const updated = [...photos];
+              updated.splice(index, 1);
+              setPhotos(updated);
+            }}
+          >
+            Remove
+          </button>
+        </div>
+      ))}
+    </div>
+  )}
+</div>
           <div className="liability-section">
   <h2 className="liability-title">Liability Agreement</h2>
   <p className="liability-intro">Before proceeding, please read and acknowledge each item below:</p>
