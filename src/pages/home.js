@@ -63,15 +63,17 @@ useEffect(() => {
         High Visibility Detailing has a focus on customer service and satisfaction...
       </p>
       <p className="about-description">
-        We are happy to service customers in any location...
+        Whether you are at WORK or HOME, we are happy to service customers in any location
       </p>
       <p className="about-description">
-        Whether you have a truck, sedan, suv, luxury, exotic, or classic car...
+        Whether you have a Truck, SUV, Sedan, Coupe, Exotic, Luxury, or Classic Car...
+      </p>
+      <p className="about-description">
+        Based out of Calhoun, Georgia, we are a Mobile-Only Automotive Detail and Ceramic Coating Service Provider.
       </p>
     </div>
   </div>
 </section>
-
 <section className="services-section">
     <div className="services-contain">
     <h2 className="services-title">Our Services</h2>
