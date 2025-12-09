@@ -346,6 +346,7 @@ setTimeout(checkAllFieldsFilled, 0);
           <textarea name="notes" placeholder="Additional Notes" value={form.notes} onChange={handleChange} /></label>
 <div className="photo-upload-wrapper">
   <label>Vehicle Photos: </label>
+    <p><strong>Note: </strong>Max Limit for photos is 25MB. If exceeded, the form will not send an email. Make sure your photos do not exceed 25MG.</p>
   <label htmlFor="photo-upload" className="custom-upload-button">
     📷 Upload Vehicle Photos
   </label>
