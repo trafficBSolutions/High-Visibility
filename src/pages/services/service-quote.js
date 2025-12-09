@@ -42,6 +42,7 @@ const [waiverChecks, setWaiverChecks] = useState(
   const [errors, setErrors] = useState('');
   const [photos, setPhotos] = useState([]);
   const [signature, setSignature] = useState("");
+  const [imageSizeError, setImageSizeError] = useState('');
   const handlePhoneChange = (event) => {
     const input = event.target.value;
     const rawInput = input.replace(/\D/g, ''); // Remove non-digit characters
@@ -89,6 +90,16 @@ const handleServiceToggle = (e) => {
 const handleSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
+    
+    // Check total image size
+    const totalSize = photos.reduce((sum, photo) => sum + photo.size, 0);
+    const maxSize = 25 * 1024 * 1024; // 25MB
+    
+    if (totalSize > maxSize) {
+      setImageSizeError(`Total image size (${(totalSize / 1024 / 1024).toFixed(2)}MB) exceeds 25MB limit. Please remove some images.`);
+      return;
+    }
+    
     setIsSubmitting(true);
     try { const requiredFields = ['name', 'email', 'phone', 'vehicleType',
       'make', 'model', 'color', 'city'];
@@ -347,10 +358,22 @@ setTimeout(checkAllFieldsFilled, 0);
     style={{ display: 'none' }}
     onChange={(e) => {
       const selectedFiles = Array.from(e.target.files);
-      setPhotos((prev) => [...prev, ...selectedFiles]);
+      const newPhotos = [...photos, ...selectedFiles];
+      const totalSize = newPhotos.reduce((sum, photo) => sum + photo.size, 0);
+      const maxSize = 25 * 1024 * 1024; // 25MB
+      
+      if (totalSize > maxSize) {
+        setImageSizeError(`Total image size would exceed 25MB limit. Current: ${(totalSize / 1024 / 1024).toFixed(2)}MB`);
+        return;
+      }
+      
+      setImageSizeError('');
+      setPhotos(newPhotos);
     }}
   />
 
+  {imageSizeError && <div className="error-message">{imageSizeError}</div>}
+  
   {photos.length > 0 && (
     <div className="photo-preview-grid">
       {photos.map((photo, index) => (
@@ -367,6 +390,7 @@ setTimeout(checkAllFieldsFilled, 0);
               const updated = [...photos];
               updated.splice(index, 1);
               setPhotos(updated);
+              setImageSizeError('');
             }}
           >
             Remove
