@@ -101,7 +101,7 @@ useEffect(() => {
         <li>12-Month Ceramic/Graphene Spray: $89–$99</li>
         <li>Pet Hair Removal: $49–$149</li>
         <li>Steam Cleaning: $69–$159</li>
-        <li>Carpet/Upholstery Extraction: $59–$299</li>
+        <li>Carpet/Upholstery Shampoo/Extraction: $59–$299</li>
         <li>Leather Conditioning: $39–$79</li>
         <li>Engine Detail: $29–$49</li>
         <li>Headlight Restoration: $79–$99</li>
