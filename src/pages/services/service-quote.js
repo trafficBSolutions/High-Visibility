@@ -297,7 +297,7 @@ setTimeout(checkAllFieldsFilled, 0);
   "12-Month Ceramic/Graphene Spray (lasts up to 12 months and includes light clay treatment and chemical decontamination of the paint) - $89–$99",
   "Pet Hair Removal - $49–$149",
   "Steam Cleaning - $69–$159",
-  "Carpet/Upholstery Extraction - $59–$299",
+  "Carpet/Upholstery Shampoo/Extraction - $59–$299",
   "Leather Conditioning - $39–$79",
   "Engine Detail - $29–$49",
   "Headlight Restoration - $79–$99",
