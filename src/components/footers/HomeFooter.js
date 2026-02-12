@@ -32,7 +32,7 @@ const footer = () => {
                             </div>
                             <div className="footer-copyright">
       <p className="footer-copy-p">&copy; 2026 High Visibility Detailing - 
-         Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.facebook.com/will.rowell.779" target="_blank" rel="noopener noreferrer">William Rowell</a> - All Rights Reserved.</p>
+         Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.material-worx.com" target="_blank" rel="noopener noreferrer">Material WorX Sign Shop</a> - All Rights Reserved.</p>
     </div>
                             </footer>
     )
