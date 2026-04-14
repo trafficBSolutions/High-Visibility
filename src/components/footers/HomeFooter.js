@@ -18,7 +18,7 @@ const footer = () => {
                         </ul>
                     </div>
                     <li className="header-nav-social-list quote-dropdown">
-  <a href="/services/service-quote" className="main-footer-quote-link">Get a Quote</a>
+  <a href="/services/express-detailing" className="main-footer-quote-link">Get a Quote</a>
   </li>
                 <div className="footer-nav-social">
                     <a href="https://www.facebook.com/highvisibilitydetailing" className="footer-nav-social-link">
@@ -32,7 +32,7 @@ const footer = () => {
                             </div>
                             <div className="footer-copyright">
       <p className="footer-copy-p">&copy; 2026 High Visibility Detailing - 
-         Website MERN Stack Coded & Deployed by <a className="footer-face"href="https://www.trafficbarriersolutions.com" target="_blank" rel="noopener noreferrer">Traffic & Barrier Solutions, LLC</a> - All Rights Reserved.</p>
+         Website Created by <a className="footer-face" href="https://www.material-worx.com/portfolio" target="_blank" rel="noopener noreferrer">MX Systems</a> - All Rights Reserved.</p>
     </div>
                             </footer>
     )
