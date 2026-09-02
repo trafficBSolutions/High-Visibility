@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Header from '../../components/headers/QuoteHeader';
 import Footer from '../../components/footers/QuoteFooter';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReCAPTCHA from 'react-google-recaptcha';
 const ServiceQuote = () => {
   const [form, setForm] = useState({
     name: '', email: '', phone: '', vehicleType: '', make: '', model: '', color: '', city: '',
@@ -42,6 +43,8 @@ const [waiverChecks, setWaiverChecks] = useState(
   const [errors, setErrors] = useState('');
   const [photos, setPhotos] = useState([]);
   const [signature, setSignature] = useState("");
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const recaptchaRef = useRef(null);
   const [imageSizeError, setImageSizeError] = useState('');
   const handlePhoneChange = (event) => {
     const input = event.target.value;
@@ -97,6 +100,11 @@ const handleSubmit = async (e) => {
     
     if (totalSize > maxSize) {
       setImageSizeError(`Total image size (${(totalSize / 1024 / 1024).toFixed(2)}MB) exceeds 25MB limit. Please remove some images.`);
+      return;
+    }
+
+    if (!captchaToken) {
+      setErrorMessage('Please complete the reCAPTCHA verification.');
       return;
     }
     
@@ -170,6 +178,8 @@ if (Object.keys(newErrors).length > 0) {
 }
       setErrors({});
       setPhone('');
+      setCaptchaToken(null);
+      recaptchaRef.current.reset();
       setSubmissionMessage(
         '✅ Your job has been submitted! A confirmation email has been sent. A representative will call you shortly to schedule your service.'
       );}
@@ -297,7 +307,7 @@ setTimeout(checkAllFieldsFilled, 0);
   "12-Month Ceramic/Graphene Spray (lasts up to 12 months and includes light clay treatment and chemical decontamination of the paint) - $89–$99",
   "Pet Hair Removal - $49–$149",
   "Steam Cleaning - $69–$159",
-  "Carpet/Upholstery Shampoo/Extraction - $59–$299",
+  "Carpet/Upholstery Extraction - $59–$299",
   "Leather Conditioning - $39–$79",
   "Engine Detail - $29–$49",
   "Headlight Restoration - $79–$99",
@@ -429,6 +439,13 @@ setTimeout(checkAllFieldsFilled, 0);
     Please read, check all checkboxes and type your full name before submitting quote.
   </p>
 ) : null}
+
+  <ReCAPTCHA
+    ref={recaptchaRef}
+    sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+    onChange={(token) => setCaptchaToken(token)}
+    onExpired={() => setCaptchaToken(null)}
+  />
 </div>
  <div className="submit-button-wrapper">
 <button
@@ -436,8 +453,9 @@ setTimeout(checkAllFieldsFilled, 0);
   className="quote-service-button"
   disabled={
     isSubmitting ||
-    waiverChecks.includes(false) || 
-    signature.trim() === ''
+    waiverChecks.includes(false) ||
+    signature.trim() === '' ||
+    !captchaToken
   }
 >
     {isSubmitting ? (
